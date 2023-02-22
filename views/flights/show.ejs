@@ -13,6 +13,10 @@
     <% flight.destinations.forEach(destination => { %>
         <div><%= destination.airport %> @ <%= destination.arrivalDate %></div>
     <% }) %>
+    <div>Tickets</div>
+    <% tickets.forEach(ticket => { %>
+        <div><%= ticket.seat %> - $<%= ticket.price %></div>
+    <% }) %>
 </section>
 <br><br>
 <form id="add-destination-form" method="POST" action="/flights/<%= flight.id %>/destinations">
@@ -28,5 +32,7 @@
     <input type="datetime-local" name="arrivalDate">
     <input type="submit" value="Add Destination">
 </form>
+<br>
+<a href="/flights/<%= flight.id %>/tickets/new">New Ticket</a>
 
 <%- include('../partials/footer') %>
